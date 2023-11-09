@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LearningCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CourseLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CourseStreamID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CourseStream" Relationship="Self.FK_CourseLocation_CourseStream" FromRole="CourseLocation" ToRole="CourseStream" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_CourseLocation_Locations1" FromRole="CourseLocation" ToRole="Locations" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurriculumID" Type="Int32" Nullable="false" />
+    <Property Name="PersonLimit" Type="Int32" Nullable="false" />
+    <Property Name="AnnouncementDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Curriculum" Relationship="Self.FK_Courses_Curriculum" FromRole="Courses" ToRole="Curriculum" />
+    <NavigationProperty Name="CourseStreams" Relationship="Self.FK_CourseStream_Courses" FromRole="Courses" ToRole="CourseStream" />
+  </EntityType>
+  <EntityType Name="CourseStream">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CourseLocations" Relationship="Self.FK_CourseLocation_CourseStream" FromRole="CourseStream" ToRole="CourseLocation" />
+    <NavigationProperty Name="Cours" Relationship="Self.FK_CourseStream_Courses" FromRole="CourseStream" ToRole="Courses" />
+    <NavigationProperty Name="Registrations" Relationship="Self.FK_Registrations_CourseStream" FromRole="CourseStream" ToRole="Registrations" />
+  </EntityType>
+  <EntityType Name="Curriculum">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectID" Type="Int32" Nullable="false" />
+    <Property Name="LecturerID" Type="Int32" Nullable="false" />
+    <Property Name="Syllabus" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Curriculum" FromRole="Curriculum" ToRole="Courses" />
+    <NavigationProperty Name="Lecturer" Relationship="Self.FK_Curriculum_Lecturers" FromRole="Curriculum" ToRole="Lecturers" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK_Curriculum_Subjects" FromRole="Curriculum" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="Lecturer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Curricula" Relationship="Self.FK_Curriculum_Lecturers" FromRole="Lecturers" ToRole="Curriculum" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Longtitude" Type="Double" Nullable="false" />
+    <Property Name="Latitude" Type="Double" Nullable="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <NavigationProperty Name="CourseLocations" Relationship="Self.FK_CourseLocation_Locations1" FromRole="Locations" ToRole="CourseLocation" />
+    <NavigationProperty Name="Locations1" Relationship="Self.FK_Catalogue_Catalogue" FromRole="Locations" ToRole="Locations1" />
+    <NavigationProperty Name="Location1" Relationship="Self.FK_Catalogue_Catalogue" FromRole="Locations1" ToRole="Locations" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="CourseStreamID" Type="Int32" Nullable="false" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CourseStream" Relationship="Self.FK_Registrations_CourseStream" FromRole="Registrations" ToRole="CourseStream" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Registrations_Users" FromRole="Registrations" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Credits" Type="Int32" Nullable="false" />
+    <Property Name="Hours" Type="Int32" />
+    <NavigationProperty Name="Curricula" Relationship="Self.FK_Curriculum_Subjects" FromRole="Subjects" ToRole="Curriculum" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Registrations" Relationship="Self.FK_Registrations_Users" FromRole="Users" ToRole="Registrations" />
+  </EntityType>
+  <Association Name="FK_CourseLocation_CourseStream">
+    <End Role="CourseStream" Type="Self.CourseStream" Multiplicity="1" />
+    <End Role="CourseLocation" Type="Self.CourseLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseStream">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CourseLocation">
+        <PropertyRef Name="CourseStreamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseLocation_Locations1">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="CourseLocation" Type="Self.CourseLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CourseLocation">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courses_Curriculum">
+    <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curriculum">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="CurriculumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseStream_Courses">
+    <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+    <End Role="CourseStream" Type="Self.CourseStream" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CourseStream">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registrations_CourseStream">
+    <End Role="CourseStream" Type="Self.CourseStream" Multiplicity="1" />
+    <End Role="Registrations" Type="Self.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseStream">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Registrations">
+        <PropertyRef Name="CourseStreamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curriculum_Lecturers">
+    <End Role="Lecturers" Type="Self.Lecturer" Multiplicity="1" />
+    <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Curriculum">
+        <PropertyRef Name="LecturerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curriculum_Subjects">
+    <End Role="Subjects" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Curriculum">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Catalogue_Catalogue">
+    <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Locations1" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Locations1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registrations_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Registrations" Type="Self.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Registrations">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LearningCenterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CourseLocations" EntityType="Self.CourseLocation" />
+    <EntitySet Name="Courses" EntityType="Self.Cours" />
+    <EntitySet Name="CourseStreams" EntityType="Self.CourseStream" />
+    <EntitySet Name="Curricula" EntityType="Self.Curriculum" />
+    <EntitySet Name="Lecturers" EntityType="Self.Lecturer" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="Registrations" EntityType="Self.Registration" />
+    <EntitySet Name="Subjects" EntityType="Self.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_CourseLocation_CourseStream" Association="Self.FK_CourseLocation_CourseStream">
+      <End Role="CourseStream" EntitySet="CourseStreams" />
+      <End Role="CourseLocation" EntitySet="CourseLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseLocation_Locations1" Association="Self.FK_CourseLocation_Locations1">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="CourseLocation" EntitySet="CourseLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courses_Curriculum" Association="Self.FK_Courses_Curriculum">
+      <End Role="Curriculum" EntitySet="Curricula" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseStream_Courses" Association="Self.FK_CourseStream_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="CourseStream" EntitySet="CourseStreams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registrations_CourseStream" Association="Self.FK_Registrations_CourseStream">
+      <End Role="CourseStream" EntitySet="CourseStreams" />
+      <End Role="Registrations" EntitySet="Registrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curriculum_Lecturers" Association="Self.FK_Curriculum_Lecturers">
+      <End Role="Lecturers" EntitySet="Lecturers" />
+      <End Role="Curriculum" EntitySet="Curricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curriculum_Subjects" Association="Self.FK_Curriculum_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Curriculum" EntitySet="Curricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Catalogue_Catalogue" Association="Self.FK_Catalogue_Catalogue">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Locations1" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registrations_Users" Association="Self.FK_Registrations_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Registrations" EntitySet="Registrations" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+</Schema>

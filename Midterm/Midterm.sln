@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midterm_WEB_API", "Midterm_WEB_API\Midterm_WEB_API.csproj", "{08DE52FE-88BE-47A0-A504-5AFC4AB90145}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midterm_MVC_Client", "Midterm_MVC_Client\Midterm_MVC_Client.csproj", "{D56564E5-D10C-45B8-B797-2057AF90EAD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08DE52FE-88BE-47A0-A504-5AFC4AB90145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DE52FE-88BE-47A0-A504-5AFC4AB90145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DE52FE-88BE-47A0-A504-5AFC4AB90145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DE52FE-88BE-47A0-A504-5AFC4AB90145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56564E5-D10C-45B8-B797-2057AF90EAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56564E5-D10C-45B8-B797-2057AF90EAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56564E5-D10C-45B8-B797-2057AF90EAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56564E5-D10C-45B8-B797-2057AF90EAD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B1391EF-DFFA-4E55-A6F0-681CD3642AB2}
+	EndGlobalSection
+EndGlobal

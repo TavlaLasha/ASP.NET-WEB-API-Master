@@ -13,24 +13,24 @@ using System.Web.Mvc;
 
 namespace Midterm_MVC_Client.Controllers
 {
-    public class CustomersController : Controller
+    public class ProductsController : Controller
     {
         static HttpClient client = new HttpClient();
-        static string BaseURL = ConfigurationManager.AppSettings["ShopService"] + "/customers";
+        static string BaseURL = ConfigurationManager.AppSettings["ShopService"] + "/products";
 
-        // GET: Customers
+        // GET: Products
         public ActionResult Index()
         {
             try
             {
                 HttpResponseMessage response = client.GetAsync($"{BaseURL}").Result;
-                var ct = new List<CustomerDTO>();
+                var ct = new List<ProductDTO>();
                 if (response.IsSuccessStatusCode)
                 {
-                    var Result = JsonConvert.DeserializeObject<CustomersResponse>(response.Content.ReadAsStringAsync().Result);
-                    if(Result.IsSuccess && Result.Customers?.Count > 0)
+                    var Result = JsonConvert.DeserializeObject<ProductsResponse>(response.Content.ReadAsStringAsync().Result);
+                    if(Result.IsSuccess && Result.Products?.Count > 0)
                     {
-                        ct = Result.Customers;
+                        ct = Result.Products;
                     }
                 }
                 return View(ct);
@@ -41,34 +41,34 @@ namespace Midterm_MVC_Client.Controllers
             }
         }
 
-        // GET: Customers/Details/5
+        // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             HttpResponseMessage response = client.GetAsync($"{BaseURL}/{id}").Result;
-            CustomerDTO ct = new CustomerDTO();
+            ProductDTO ct = new ProductDTO();
             if (response.IsSuccessStatusCode)
             {
-                var Result = JsonConvert.DeserializeObject<CustomerResponse>(response.Content.ReadAsStringAsync().Result);
-                if (Result.IsSuccess && Result.Customer != null)
+                var Result = JsonConvert.DeserializeObject<ProductResponse>(response.Content.ReadAsStringAsync().Result);
+                if (Result.IsSuccess && Result.Product != null)
                 {
-                    ct = Result.Customer;
+                    ct = Result.Product;
                 }
             }
             return View(ct);
         }
 
-        // GET: Customers/Create
+        // GET: Products/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Products/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection, CustomerDTO customer)
+        public ActionResult Create(FormCollection collection, ProductDTO Product)
         {
             ViewBag.ErrorMessage = "";
             try
@@ -80,7 +80,7 @@ namespace Midterm_MVC_Client.Controllers
                 }
                 else
                 {
-                    string output = JsonConvert.SerializeObject(customer);
+                    string output = JsonConvert.SerializeObject(Product);
                     var stringContent = new StringContent(output, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = client.PostAsync($"{BaseURL}/add", stringContent).Result;
@@ -100,7 +100,7 @@ namespace Midterm_MVC_Client.Controllers
             }
         }
 
-        // GET: Customers/Edit/5
+        // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -108,14 +108,14 @@ namespace Midterm_MVC_Client.Controllers
 
             HttpResponseMessage response = client.GetAsync($"{BaseURL}/{id}").Result;
 
-            CustomerDTO ct = new CustomerDTO();
+            ProductDTO ct = new ProductDTO();
 
             if (response.IsSuccessStatusCode)
             {
-                var Result = JsonConvert.DeserializeObject<CustomerResponse>(response.Content.ReadAsStringAsync().Result);
-                if(Result.IsSuccess && Result.Customer != null)
+                var Result = JsonConvert.DeserializeObject<ProductResponse>(response.Content.ReadAsStringAsync().Result);
+                if(Result.IsSuccess && Result.Product != null)
                 {
-                    ct = Result.Customer;
+                    ct = Result.Product;
                 }
                 return View(ct);
             }
@@ -125,16 +125,16 @@ namespace Midterm_MVC_Client.Controllers
             }
         }
 
-        // POST: Customers/Edit/5
+        // POST: Products/Edit/5
         [HttpPost]
-        public ActionResult Edit(int? id, FormCollection collection, CustomerDTO customer)
+        public ActionResult Edit(int? id, FormCollection collection, ProductDTO Product)
         {
             try
             {
                 if (!ModelState.IsValid)
                     throw new Exception("მონაცემები არავალიდურია!");
 
-                string output = JsonConvert.SerializeObject(customer);
+                string output = JsonConvert.SerializeObject(Product);
                 var stringContent = new StringContent(output, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = client.PutAsync(BaseURL + "/update", stringContent).Result;
@@ -152,26 +152,26 @@ namespace Midterm_MVC_Client.Controllers
             }
         }
 
-        // GET: Customers/Delete/5
+        // GET: Products/Delete/5
         public ActionResult Delete(int id)
         {
             if (id.Equals(""))
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             HttpResponseMessage response = client.GetAsync($"{BaseURL}/{id}").Result;
-            CustomerDTO ct = new CustomerDTO();
+            ProductDTO ct = new ProductDTO();
             if (response.IsSuccessStatusCode)
             {
-                var Result = JsonConvert.DeserializeObject<CustomerResponse>(response.Content.ReadAsStringAsync().Result);
-                if (Result.IsSuccess && Result.Customer != null)
+                var Result = JsonConvert.DeserializeObject<ProductResponse>(response.Content.ReadAsStringAsync().Result);
+                if (Result.IsSuccess && Result.Product != null)
                 {
-                    ct = Result.Customer;
+                    ct = Result.Product;
                 }
             }
             return View(ct);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Products/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

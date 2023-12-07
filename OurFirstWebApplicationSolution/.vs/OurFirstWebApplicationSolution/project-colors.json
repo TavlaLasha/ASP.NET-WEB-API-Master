@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "80bcd290-58d1-4f85-974a-bb8e4126ada2": {
+      "ProjectGuid": "80bcd290-58d1-4f85-974a-bb8e4126ada2",
+      "DisplayName": "BLL",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,10 @@
+C:\Users\lasha\Desktop\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\bin\Debug\Models.dll
+C:\Users\lasha\Desktop\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\bin\Debug\Models.pdb
+C:\Users\lasha\Desktop\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\obj\Debug\Models.dll
+C:\Users\lasha\Desktop\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\obj\Debug\Models.pdb
+F:\Desktop\Lasha\GAU\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\bin\Debug\Models.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\bin\Debug\Models.pdb
+F:\Desktop\Lasha\GAU\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+F:\Desktop\Lasha\GAU\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+F:\Desktop\Lasha\GAU\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\obj\Debug\Models.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\ASP.NET-MVC\OurFirstWebApplicationSolution\Models\obj\Debug\Models.pdb

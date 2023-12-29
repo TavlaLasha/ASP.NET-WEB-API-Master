@@ -21,6 +21,9 @@ namespace Homework_8_9_API.EF
         [StringLength(50)]
         public string Name { get; set; }
 
+        [StringLength(1000)]
+        public string Description { get; set; }
+
         [Column(TypeName = "money")]
         public decimal? Price { get; set; }
 

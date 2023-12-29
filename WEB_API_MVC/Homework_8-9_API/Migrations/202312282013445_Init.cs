@@ -41,6 +41,7 @@
                         ID = c.Int(nullable: false, identity: true),
                         ProductCategoryID = c.Int(nullable: false),
                         Name = c.String(maxLength: 50),
+                        Description = c.String(maxLength: 1000),
                         Price = c.Decimal(storeType: "money"),
                         ExpireDate = c.DateTime(),
                         DateAdded = c.DateTime(),

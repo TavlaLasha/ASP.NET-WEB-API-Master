@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 
 namespace Homework_8_9_API.Models
@@ -27,6 +28,8 @@ namespace Homework_8_9_API.Models
                         {
                             ID = i.ID,
                             Name = i.Name,
+                            Description = i.Description,
+                            Price = i.Price,
                             ExpireDate = i.ExpireDate,
                             DateAdded = i.DateAdded
                         }).ToList());
@@ -38,9 +41,10 @@ namespace Homework_8_9_API.Models
                     {
                         ID = i.ID,
                         Name = i.Name,
+                        Description = i.Description,
+                        Price = i.Price,
                         ExpireDate = i.ExpireDate,
-                        DateAdded = i.DateAdded,
-
+                        DateAdded = i.DateAdded
                     }).ToList();
                 }
                 Result.IsSuccess = true;
@@ -62,6 +66,8 @@ namespace Homework_8_9_API.Models
                     {
                         ID = DBItem.ID,
                         Name = DBItem.Name,
+                        Description = DBItem.Description,
+                        Price = DBItem.Price,
                         ExpireDate = DBItem.ExpireDate,
                         DateAdded = DBItem.DateAdded
 
@@ -124,6 +130,8 @@ namespace Homework_8_9_API.Models
                         var ProductToUpdate = db.Products.Where(i => i.ID == SubmitModel.ID).First();
 
                         ProductToUpdate.Name = SubmitModel.Name;
+                        ProductToUpdate.Description = SubmitModel.Description;
+                        ProductToUpdate.Price = SubmitModel.Price;
                         ProductToUpdate.ExpireDate = SubmitModel.ExpireDate;
                         ProductToUpdate.DateAdded = SubmitModel.DateAdded;
                         db.SaveChanges();
@@ -167,6 +175,8 @@ namespace Homework_8_9_API.Models
         {
             public int? ID { get; set; }
             public string Name { get; set; }
+            public string Description { get; set; }
+            public decimal? Price { get; set; }
             public string City { get; set; }
             public DateTime? ExpireDate { get; set; }
             public DateTime? DateAdded { get; set; }

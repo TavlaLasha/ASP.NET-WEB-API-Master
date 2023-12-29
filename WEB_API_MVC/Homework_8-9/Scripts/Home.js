@@ -92,7 +92,8 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="text-center">${item.Name}</h5>
-                                <p class="text-center">Price: 5.00</p>
+                                <p class="text-center">${item.Description ?? ''}</p>
+                                <p class="text-center">Price: ${item.Price ?? ''}</p>
                             </div>
                         </div>
                     </div>`);

@@ -29,26 +29,25 @@ namespace Homework_8_9.Helpers
             return true;
         }
 
-        //public override void OnAuthorization(AuthorizationContext filterContext)
-        //{
-        //    if (filterContext == null)
-        //    {
-        //        throw new ArgumentNullException("filterContext");
-        //    }
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            if (filterContext == null)
+            {
+                throw new ArgumentNullException("filterContext");
+            }
 
 
-        //    if (!filterContext.ActionDescriptor.IsDefined(typeof(AllowAnonymousAttribute), inherit: true) && !filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(AllowAnonymousAttribute), inherit: true))
-        //    {
-        //        if (AuthorizeCore(filterContext.HttpContext))
-        //        {
-        //            filterContext.HttpContext.User.Identity. = true;
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            HandleUnauthorizedRequest(filterContext);
-        //        }
-        //    }
-        //}
+            if (!filterContext.ActionDescriptor.IsDefined(typeof(AllowAnonymousAttribute), inherit: true) && !filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(AllowAnonymousAttribute), inherit: true))
+            {
+                if (AuthorizeCore(filterContext.HttpContext))
+                {
+                    return;
+                }
+                else
+                {
+                    filterContext.Result = new RedirectResult("/Account/Login");
+                }
+            }
+        }
     }
 }

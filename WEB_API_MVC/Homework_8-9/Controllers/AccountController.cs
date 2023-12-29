@@ -1,14 +1,10 @@
 ﻿using Homework_8_9.Helpers;
 using Homework_8_9.Models;
-using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -18,7 +14,6 @@ namespace Homework_8_9.Controllers
     [CustomAuthorize]
     public class AccountController : Controller
     {
-
         static HttpClient client = new HttpClient();
         static string BaseURL = ConfigurationManager.AppSettings["ShopService"];
 
@@ -30,10 +25,10 @@ namespace Homework_8_9.Controllers
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
-        
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginViewModel model = new LoginViewModel();
+            return View(model);
         }
 
         //
@@ -82,7 +77,8 @@ namespace Homework_8_9.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterViewModel model = new RegisterViewModel();
+            return View(model);
         }
 
         //
@@ -94,19 +90,27 @@ namespace Homework_8_9.Controllers
         {
             if (ModelState.IsValid)
             {
+                try
+                {
+                    string output = JsonConvert.SerializeObject(model);
+                    var stringContent = new StringContent(output, Encoding.UTF8, "application/json");
 
+                    var response = await client.PostAsync($"{BaseURL}api/Account/Register", stringContent);
 
-                //var result = await UserManager.CreateAsync(user, model.Password);
-                //if (result.Succeeded)
-                //{
-                //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        ModelState.AddModelError("", "Invalid register attempt.");
+                        return View(model);
+                    }
 
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //AddErrors(result);
+                    return Redirect("/Account/Login");
+                }
+                catch (Exception ex)
+                {
+                    return new HttpStatusCodeResult(500);
+                }
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading;
 using System.Web;
 
@@ -112,7 +113,7 @@ namespace Homework_8_9_API.Models
             return Result;
         }
 
-        public ApiResponseBase UpdateProduct(ProductDTO SubmitModel)
+        public ApiResponseBase UpdateProduct(ProductDTO SubmitModel, string UserEmail)
         {
             var Result = new ApiResponseBase();
 
@@ -128,13 +129,50 @@ namespace Homework_8_9_API.Models
                     else
                     {
                         var ProductToUpdate = db.Products.Where(i => i.ID == SubmitModel.ID).First();
+                        StringBuilder ProductUpdateLogData = new StringBuilder();
+                        if (SubmitModel.Name != null)
+                        {
+                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.Name} => {SubmitModel.Name}");
+                            ProductToUpdate.Name = SubmitModel.Name;
+                        }
+                        if (SubmitModel.Description != null)
+                        {
+                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.Description} => {SubmitModel.Description}");
+                            ProductToUpdate.Description = SubmitModel.Description;
+                        }
+                        if (SubmitModel.Price != null)
+                        {
+                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.Price} => {SubmitModel.Price}");
+                            ProductToUpdate.Price = SubmitModel.Price;
+                        }
+                        if (SubmitModel.ExpireDate != null)
+                        {
+                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.ExpireDate} => {SubmitModel.ExpireDate}");
+                            ProductToUpdate.ExpireDate = SubmitModel.ExpireDate;
+                        }
+                        if (SubmitModel.DateAdded != null)
+                        {
+                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.DateAdded} => {SubmitModel.DateAdded}");
+                            ProductToUpdate.DateAdded = SubmitModel.DateAdded;
+                        }
 
-                        ProductToUpdate.Name = SubmitModel.Name;
-                        ProductToUpdate.Description = SubmitModel.Description;
-                        ProductToUpdate.Price = SubmitModel.Price;
-                        ProductToUpdate.ExpireDate = SubmitModel.ExpireDate;
-                        ProductToUpdate.DateAdded = SubmitModel.DateAdded;
-                        db.SaveChanges();
+                        if (ProductUpdateLogData.Length > 0)
+                        {
+                            int? UserID = null;
+                            if (!string.IsNullOrWhiteSpace(UserEmail))
+                            {
+                                //var User = 
+                            }
+                            db.UserActionLogs.Add(new UserActionLog
+                            {
+                                LogActionUrl = nameof(UpdateProduct),
+                                LogActionDescription = ProductUpdateLogData.ToString(),
+                                LogDateCreated = DateTime.Now
+                            });
+                        }
+
+                        db.SaveChanges();                       
+
                         Result.IsSuccess = true;
                     }
                 }

@@ -1,45 +1,40 @@
-﻿using Newtonsoft.Json;
+﻿using Homework_8_9.Models;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Web;
 
 namespace Homework_8_9.Helpers
 {
 
-    public class SessionAssistance : ISessionAssistance
+    public class SessionAssistance
     {
-        #region Properties
-        HttpSessionStateBase Session;
-        #endregion
-
-        #region Constructors
-        public SessionAssistance(HttpSessionStateBase Session)
-        {
-            this.Session = Session;
-        }
-        #endregion
-
         #region Methods
-        public void Clear()
+        public static void Clear(HttpSessionStateBase Session)
         {
             Session.Clear();
         }
 
-        public T Get<T>(string Key)
+        public static void SetValue(HttpSessionStateBase Session, string Key, object Value)
         {
-            return HasKey(Key) ? JsonConvert.DeserializeObject<T>(Session[Key].ToString()) : default(T);
+            Session[Key] = Value;
         }
 
-        public bool HasKey(string Key)
+        public static T GetValue<T>(HttpSessionStateBase Session, string Key)
         {
-            return Session[Key] != null;
+            return (T)Session[Key];
         }
 
-        public void Set<T>(string Key, T Value)
+        public static void SetUser(HttpSessionStateBase Session, object User)
         {
-            Session[Key] = JsonConvert.SerializeObject(Value);
+            SetValue(Session, "user", User);
         }
 
-        public void Remove(string Key)
+        public static User GetUser(HttpSessionStateBase Session)
+        {
+            return Session["user"] as User;
+        }
+
+        public static void Remove(HttpSessionStateBase Session, string Key)
         {
             Session.Remove(Key);
         }

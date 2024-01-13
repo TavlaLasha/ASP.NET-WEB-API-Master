@@ -3,6 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Homework_8_9.Models
 {
+    public class User
+    {
+        public string access_token { get; set; }
+        public string Email { get; set; }
+        public List<string> Roles { get; set; }
+    }
 
     public class ForgotViewModel
     {

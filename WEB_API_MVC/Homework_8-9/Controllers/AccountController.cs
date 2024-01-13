@@ -12,7 +12,7 @@ using System.Web.Mvc;
 namespace Homework_8_9.Controllers
 {
     [CustomAuthorize]
-    public class AccountController : Controller
+    public class AccountController : WebsiteControllerBase
     {
         static HttpClient client = new HttpClient();
         static string BaseURL = ConfigurationManager.AppSettings["ShopService"];
@@ -45,6 +45,7 @@ namespace Homework_8_9.Controllers
 
             try
             {
+                User LoginResult = null;
                 var dict = new Dictionary<string, string>
                 {
                     { "grant_type", "password" },
@@ -61,8 +62,19 @@ namespace Homework_8_9.Controllers
                 }
                 var Content = await response.Content.ReadAsStringAsync();
                 var Result = JsonConvert.DeserializeObject<TokenResponse>(Content);
-                var SessionAssistance = new SessionAssistance(Session);
-                SessionAssistance.Set("user", Result.access_token);
+
+                LoginResult = new User { access_token = Result.access_token, Email = Result.userName };
+
+                if (!string.IsNullOrWhiteSpace(Result.userName))
+                {
+                    var UserReq = new HttpRequestMessage(HttpMethod.Get, $"{BaseURL}api/Account/UserInfo?Email={Result.userName}");
+                    var UserResponse = await client.SendAsync(UserReq);
+                    var UserContent = await UserResponse.Content.ReadAsStringAsync();
+                    var UserResult = JsonConvert.DeserializeObject<User>(UserContent);
+                    LoginResult.Roles = UserResult.Roles;
+                }
+
+                SessionAssistance.SetUser(Session, LoginResult);
 
                 return Redirect("/");
             }
@@ -199,6 +211,8 @@ namespace Homework_8_9.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            SessionAssistance.Clear(Session);
+
             return RedirectToAction("Index", "Home");
         }
 

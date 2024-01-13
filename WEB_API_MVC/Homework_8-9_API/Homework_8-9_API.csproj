@@ -269,6 +269,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="EF\Customer.cs" />
+    <Compile Include="EF\UserActionLog.cs" />
     <Compile Include="EF\Order.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\ProductCategory.cs" />

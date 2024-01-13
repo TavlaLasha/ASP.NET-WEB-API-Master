@@ -16,6 +16,7 @@ namespace Homework_8_9_API.EF
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<UserActionLog> UserActionLogs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,6 +32,8 @@ namespace Homework_8_9_API.EF
             modelBuilder.Entity<Product>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<UserActionLog>().HasKey(i => i.LogID);
         }
     }
 }

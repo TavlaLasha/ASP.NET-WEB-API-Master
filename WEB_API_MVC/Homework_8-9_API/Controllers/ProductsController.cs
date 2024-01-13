@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Http;
 
@@ -46,7 +47,13 @@ namespace Homework_8_9_API.Controllers
         [Route("update", Name = "UpdateProduct")]
         public HttpResponseMessage UpdateProduct([FromBody] ProductsModel.ProductDTO SubmitModel)
         {
-            var Result = Model.UpdateProduct(SubmitModel);
+            string UserEmail = null,
+            if (Request.Headers.Contains("UserEmail"))
+            {
+                UserEmail = Request.Headers.GetValues("UserEmail").First();
+            }
+
+            var Result = Model.UpdateProduct(SubmitModel, UserEmail);
             return Request.CreateResponse(Result.StatusCode, Result);
         }
 

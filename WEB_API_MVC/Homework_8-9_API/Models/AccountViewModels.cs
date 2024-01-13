@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 
 namespace Homework_8_9_API.Models
@@ -39,5 +40,12 @@ namespace Homework_8_9_API.Models
         public string LoginProvider { get; set; }
 
         public string ProviderKey { get; set; }
+    }
+
+    public class UserViewModel
+    {
+        public string Email { get; set; }
+
+        public List<string> Roles { get; set; }
     }
 }

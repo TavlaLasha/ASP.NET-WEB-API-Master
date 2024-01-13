@@ -273,3 +273,42 @@ C:\inetpub\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Newtonsoft.Js
 C:\inetpub\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Newtonsoft.Json.Bson.xml
 C:\inetpub\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Threading.Tasks.Extensions.xml
 C:\inetpub\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Web.Http.Cors.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.AspNetCore.Http.Extensions.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.AspNetCore.Http.Features.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Options.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Primitives.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Net.Http.Headers.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Newtonsoft.Json.Bson.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Buffers.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.ComponentModel.Annotations.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Memory.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Numerics.Vectors.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Runtime.CompilerServices.Unsafe.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Text.Encodings.Web.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Threading.Tasks.Extensions.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Web.Cors.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Web.Http.Cors.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.AspNetCore.Http.Extensions.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.AspNetCore.Http.Features.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Logging.Abstractions.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Options.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Extensions.Primitives.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Microsoft.Net.Http.Headers.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Newtonsoft.Json.Bson.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\Newtonsoft.Json.Bson.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Buffers.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Memory.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Numerics.Vectors.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Runtime.CompilerServices.Unsafe.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Text.Encodings.Web.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Threading.Tasks.Extensions.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\WEB_API_MVC\Homework_8-9_API\bin\System.Web.Http.Cors.xml

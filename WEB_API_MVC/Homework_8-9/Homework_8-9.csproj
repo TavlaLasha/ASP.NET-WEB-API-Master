@@ -133,12 +133,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\WebsiteControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DTOModels\ProductCategoryDTO.cs" />
+    <Compile Include="DTOModels\ProductDTO.cs" />
+    <Compile Include="Filters\BeforeWebsitePageLoad.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AjaxResponse.cs" />
     <Compile Include="Helpers\CookieAssistance .cs" />
     <Compile Include="Helpers\CustomAuthorize.cs" />
     <Compile Include="Helpers\ICookieAssistance.cs" />
@@ -148,6 +151,7 @@
     <Compile Include="Models\ApiResponseBase.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LayoutModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -239,7 +243,6 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

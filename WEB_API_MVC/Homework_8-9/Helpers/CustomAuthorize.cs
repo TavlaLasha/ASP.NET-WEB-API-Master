@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
@@ -19,11 +21,21 @@ namespace Homework_8_9.Helpers
                 throw new ArgumentNullException("httpContext");
             }
 
-            var SessionAssistance = new SessionAssistance(httpContext.Session);
-            var AccessToken = SessionAssistance.Get<string>("user");
-            if (string.IsNullOrEmpty(AccessToken))
+            var User = SessionAssistance.GetUser(httpContext.Session);
+            if (string.IsNullOrEmpty(User?.access_token))
             {
                 return false;
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(Roles))
+                {
+                    var roles = Roles.Split(',').Select(r => r.Trim());
+                    if (User.Roles == null || User.Roles?.Count == 0 || (User.Roles?.Count > 0 && !roles.Any(User.Roles.Contains)))
+                    {
+                        return false;
+                    }
+                }
             }
 
             return true;
@@ -48,6 +60,14 @@ namespace Homework_8_9.Helpers
                     filterContext.Result = new RedirectResult("/Account/Login");
                 }
             }
+        }
+    }
+
+    public class AppPrincipal : ClaimsPrincipal
+    {
+        public override bool IsInRole(string role)
+        {
+            return true;
         }
     }
 }

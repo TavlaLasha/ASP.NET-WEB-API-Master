@@ -132,40 +132,41 @@ namespace Homework_8_9_API.Models
                         StringBuilder ProductUpdateLogData = new StringBuilder();
                         if (SubmitModel.Name != null)
                         {
-                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.Name} => {SubmitModel.Name}");
+                            ProductUpdateLogData.AppendLine($"Name: {ProductToUpdate.Name} => {SubmitModel.Name};");
                             ProductToUpdate.Name = SubmitModel.Name;
                         }
                         if (SubmitModel.Description != null)
                         {
-                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.Description} => {SubmitModel.Description}");
+                            ProductUpdateLogData.AppendLine($"Description: {ProductToUpdate.Description} => {SubmitModel.Description};");
                             ProductToUpdate.Description = SubmitModel.Description;
                         }
                         if (SubmitModel.Price != null)
                         {
-                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.Price} => {SubmitModel.Price}");
+                            ProductUpdateLogData.AppendLine($"Price: {ProductToUpdate.Price} => {SubmitModel.Price};");
                             ProductToUpdate.Price = SubmitModel.Price;
                         }
                         if (SubmitModel.ExpireDate != null)
                         {
-                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.ExpireDate} => {SubmitModel.ExpireDate}");
+                            ProductUpdateLogData.AppendLine($"ExpireDate: {ProductToUpdate.ExpireDate} => {SubmitModel.ExpireDate};");
                             ProductToUpdate.ExpireDate = SubmitModel.ExpireDate;
                         }
                         if (SubmitModel.DateAdded != null)
                         {
-                            ProductUpdateLogData.AppendLine($"{ProductToUpdate.DateAdded} => {SubmitModel.DateAdded}");
                             ProductToUpdate.DateAdded = SubmitModel.DateAdded;
                         }
 
                         if (ProductUpdateLogData.Length > 0)
                         {
-                            int? UserID = null;
+                            string UserID = null;
                             if (!string.IsNullOrWhiteSpace(UserEmail))
                             {
-                                //var User = 
+                                var User = db.AspNetUsers.FirstOrDefault(Item => Item.Email == UserEmail);
+                                UserID = User?.Id;
                             }
                             db.UserActionLogs.Add(new UserActionLog
                             {
-                                LogActionUrl = nameof(UpdateProduct),
+                                UserID = UserID,
+                                LogActionUrl = $"{nameof(UpdateProduct)} {{ID:{ProductToUpdate.ID} - {ProductToUpdate.Name}}}",
                                 LogActionDescription = ProductUpdateLogData.ToString(),
                                 LogDateCreated = DateTime.Now
                             });

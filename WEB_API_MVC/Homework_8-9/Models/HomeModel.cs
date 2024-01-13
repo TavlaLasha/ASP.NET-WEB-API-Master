@@ -1,19 +1,18 @@
 ﻿using Homework_8_9.DTOModels;
 using Homework_8_9.Helpers;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Homework_8_9.Models
 {
     public class HomeModel
     {
-        static HttpClient client = new HttpClient();
         static string BaseURL = ConfigurationManager.AppSettings["ShopService"];
 
         public static async Task<PageViewModel> GetPageViewModel()
@@ -23,12 +22,15 @@ namespace Homework_8_9.Models
             ViewModel.UrlGetProducts = $"{BaseURL}api/products";
             ViewModel.UrlUpdateProductPrice = "/Home/UpdateProductPrice";
 
-            var response = await client.GetAsync(ViewModel.UrlGetProductCategories);
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(ViewModel.UrlGetProductCategories);
 
-            var Content = await response.Content.ReadAsStringAsync();
-            var Result = JsonConvert.DeserializeObject<ProductCategoriesResponse>(Content);
+                var Content = await response.Content.ReadAsStringAsync();
+                var Result = JsonConvert.DeserializeObject<ProductCategoriesResponse>(Content);
 
-            ViewModel.ParentProductCategories = Result.ProductCategories?.Where(i => i.ProductCategoryParentID == null).ToList();
+                ViewModel.ParentProductCategories = Result.ProductCategories?.Where(i => i.ProductCategoryParentID == null).ToList();
+            }
 
             return ViewModel;
         }
@@ -46,12 +48,20 @@ namespace Homework_8_9.Models
             string output = JsonConvert.SerializeObject(Data);
             var stringContent = new StringContent(output, Encoding.UTF8, "application/json");
 
-            var response = await client.PutAsync($"{BaseURL}api/products/update", stringContent);
+            using (var client = new HttpClient())
+            {
+                var User = SessionAssistance.GetUser(new HttpSessionStateWrapper(HttpContext.Current.Session));
+                if (User != null)
+                {
+                    client.DefaultRequestHeaders.Add("UserEmail", User.Email);
+                }
 
-            var Content = await response.Content.ReadAsStringAsync();
-            var Result = JsonConvert.DeserializeObject<ApiResponseBase>(Content);
+                var response = await client.PutAsync($"{BaseURL}api/products/update", stringContent);
 
-            AR.IsSuccess = Result.IsSuccess;
+                var Content = await response.Content.ReadAsStringAsync();
+                var Result = JsonConvert.DeserializeObject<ApiResponseBase>(Content);
+                AR.IsSuccess = Result.IsSuccess;
+            }
 
             return AR;
         }

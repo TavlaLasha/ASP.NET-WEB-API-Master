@@ -1,0 +1,34 @@
+﻿@model Homework_8_9.Models.UserActionLogsModel.PageViewModel
+
+<main>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Action</th>
+                <th scope="col">Changes</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.HasUserActionLogs)
+            {
+                foreach (var Item in Model.UserActionLogs)
+                {
+                    <tr>
+                        <th>@Html.Raw(Item.LogActionUserEmail)</th>
+                        <th>@Html.Raw(Item.LogActionUrl)</th>
+                        <th>@Html.Raw(Item.LogActionDescription)</th>
+                        <th>@Html.Raw(Item.LogDateCreated)</th>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <th colspan="4" class="text-center text-uppercase">No Data</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>

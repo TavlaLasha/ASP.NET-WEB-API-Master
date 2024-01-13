@@ -265,15 +265,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApiControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserActionLogsController.cs" />
     <Compile Include="Controllers\ProductCategoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="EF\AspNetRole.cs" />
+    <Compile Include="EF\AspNetUser.cs" />
+    <Compile Include="EF\AspNetUserClaim.cs" />
+    <Compile Include="EF\AspNetUserLogin.cs" />
     <Compile Include="EF\Customer.cs" />
-    <Compile Include="EF\UserActionLog.cs" />
     <Compile Include="EF\Order.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\ProductCategory.cs" />
     <Compile Include="EF\SimpleShopDBModel.cs" />
+    <Compile Include="EF\UserActionLog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -286,6 +291,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApiResponseBase.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\UserActionLogsModel.cs" />
     <Compile Include="Models\ProductCategoriesModel.cs" />
     <Compile Include="Models\ProductsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

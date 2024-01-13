@@ -47,7 +47,7 @@ namespace Homework_8_9_API.Controllers
         [Route("update", Name = "UpdateProduct")]
         public HttpResponseMessage UpdateProduct([FromBody] ProductsModel.ProductDTO SubmitModel)
         {
-            string UserEmail = null,
+            string UserEmail = null;
             if (Request.Headers.Contains("UserEmail"))
             {
                 UserEmail = Request.Headers.GetValues("UserEmail").First();

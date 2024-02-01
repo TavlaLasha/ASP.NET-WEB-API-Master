@@ -10,3 +10,9 @@ C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Debug\Models.dll
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Debug\Models.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\bin\Debug\Models.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\bin\Debug\Models.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Debug\Models.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Debug\Models.pdb

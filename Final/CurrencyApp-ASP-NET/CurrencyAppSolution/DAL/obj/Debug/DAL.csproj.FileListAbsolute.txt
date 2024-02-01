@@ -26,3 +26,17 @@ C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.dll
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\DAL.dll.config
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\DAL.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\DAL.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\EntityFramework.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\Models.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\Models.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\EntityFramework.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Debug\EntityFramework.SqlServer.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.csproj.CopyComplete
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Debug\DAL.pdb

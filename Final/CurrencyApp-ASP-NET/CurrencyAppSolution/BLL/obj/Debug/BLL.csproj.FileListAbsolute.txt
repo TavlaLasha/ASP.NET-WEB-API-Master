@@ -34,3 +34,21 @@ C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.dll
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\BLL.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\BLL.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\DAL.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\EntityFramework.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\EntityFramework.SqlServer.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\Models.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\Newtonsoft.Json.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\DAL.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\DAL.dll.config
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\Models.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\EntityFramework.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\EntityFramework.SqlServer.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\bin\Debug\Newtonsoft.Json.xml
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.csproj.CopyComplete
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.dll
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\BLL\obj\Debug\BLL.pdb

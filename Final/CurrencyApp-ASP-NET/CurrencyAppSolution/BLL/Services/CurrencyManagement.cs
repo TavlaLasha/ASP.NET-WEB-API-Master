@@ -28,59 +28,64 @@ namespace BLL.Services
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             HttpResponseMessage response = client.GetAsync(CurrencyURL).Result;
-            List<CurrencyRoot> ct = new List<CurrencyRoot>();
+            CurrencyRoot ct = new CurrencyRoot();
             if (response.IsSuccessStatusCode)
             {
-                ct = JsonConvert.DeserializeObject<List<CurrencyRoot>>(response.Content.ReadAsStringAsync().Result);
+                var ResponseContent = response.Content.ReadAsStringAsync().Result;
+                ct = (JsonConvert.DeserializeObject<List<CurrencyRoot>>(ResponseContent))?.FirstOrDefault();
             }
 
-            List<CurrencyDTO> newCurs = new List<CurrencyDTO>();
-            List<CurrencyChangeLog> logs = new List<CurrencyChangeLog>();
-            List<string> updated = new List<string>();
-            Dictionary<string, CurrencyDTO> currencyDict = new Dictionary<string, CurrencyDTO>();
-
-            foreach (CurrencyDTO cdt in ct[0].currencies)
+            if (ct?.currencies?.Count > 0)
             {
-                CurrencyDTO curr = _unitOfWork.CurrencyRepo.GetCurrency(cdt.code);
+                List<CurrencyDTO> newCurs = new List<CurrencyDTO>();
+                List<CurrencyChangeLog> logs = new List<CurrencyChangeLog>();
+                List<string> updated = new List<string>();
+                Dictionary<string, CurrencyDTO> currencyDict = new Dictionary<string, CurrencyDTO>();
 
-                if (curr != null)
+                foreach (CurrencyDTO cdt in ct.currencies)
                 {
-                    string diff = CheckDifferences(curr, cdt);
-                    if (!diff.Equals("No Changes"))
+                    CurrencyDTO curr = _unitOfWork.CurrencyRepo.GetCurrency(cdt.code);
+
+                    if (curr != null)
                     {
-                        logs.Add(new CurrencyChangeLog
+                        string diff = CheckDifferences(curr, cdt);
+                        if (!string.IsNullOrWhiteSpace(diff))
                         {
-                            User = user,
-                            CurrencyName = cdt.code,
-                            Updated_At = DateTime.Now,
-                            Data = diff
-                        });
+                            logs.Add(new CurrencyChangeLog
+                            {
+                                User = user,
+                                CurrencyName = cdt.code,
+                                Updated_At = DateTime.Now,
+                                Data = diff
+                            });
 
-                        currencyDict.Add(cdt.code, cdt);
+                            currencyDict.Add(cdt.code, cdt);
 
-                        updated.Add(cdt.code);
+                            updated.Add(cdt.code);
+                        }
+                    }
+                    else
+                    {
+                        newCurs.Add(cdt);
                     }
                 }
-                else
-                {
-                    newCurs.Add(cdt);
-                }
+                _unitOfWork.BeginTransaction();
+
+                if (newCurs.Any())
+                    _unitOfWork.CurrencyRepo.AddCurrencies(newCurs);
+
+                if (logs.Any())
+                    _unitOfWork.LogRepo.AddLogs(logs);
+
+                if (currencyDict.Any())
+                    _unitOfWork.CurrencyRepo.EditCurrencies(currencyDict);
+
+                _unitOfWork.Save();
+                _unitOfWork.CommitTransaction();
+
+                return updated;
             }
-            _unitOfWork.BeginTransaction();
-
-            if (newCurs.Any())
-                _unitOfWork.CurrencyRepo.AddCurrencies(newCurs);
-
-            if (logs.Any())
-                _unitOfWork.LogRepo.AddLogs(logs);
-
-            if (currencyDict.Any())
-                _unitOfWork.CurrencyRepo.EditCurrencies(currencyDict);
-
-            _unitOfWork.Save();
-            _unitOfWork.CommitTransaction();
-
-            return updated;
+            return null;
         }
 
         public bool EditCurrency(string code, string user, CurrencyDTO dt)
@@ -144,11 +149,6 @@ namespace BLL.Services
                 dat.Append((old.diff != changed.diff) ? $"diff:{old.diff} -> {changed.diff} " : "");
                 dat.Append((old.date.Date != changed.date.Date) ? $"date:{old.date} -> {changed.date} " : "");
                 dat.Append((old.validFromDate.Date != changed.validFromDate.Date) ? $"validFromDate:{old.validFromDate} -> {changed.validFromDate} " : "");
-
-                if(dat.Length == 0)
-                {
-                    dat.Append("No Changes");
-                }
 
                 return dat.ToString();
             }

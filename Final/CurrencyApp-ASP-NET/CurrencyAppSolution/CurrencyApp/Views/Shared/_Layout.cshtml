@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{ var Model = (CurrencyApp.Models.WebsiteLayoutViewModel)ViewData["ConstantsViewDataLayoutViewModel"]; }
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - My Final ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -24,8 +25,35 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Model.IsAdmin)
+                    {
+                        <li>@Html.ActionLink("Logs", "GetLogs", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
                 </ul>
-                @Html.Partial("_LoginPartial")
+
+                @if (Model.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a class="nav-link">@Html.Raw("Hello " + Model.User.Email.Split('@')[0] + " !")</a>
+                                @*@Html.ActionLink("Hello " + Model.User.Email.Split('@')[0] + " !", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })*@
+                            </li>
+                            <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                        </ul>
+                    }
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+                    </ul>
+                }
+
             </div>
         </div>
     </div>

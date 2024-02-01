@@ -55,6 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EF\AspNetRole.cs" />
+    <Compile Include="EF\AspNetUser.cs" />
+    <Compile Include="EF\AspNetUserClaim.cs" />
+    <Compile Include="EF\AspNetUserLogin.cs" />
     <Compile Include="EF\Currency.cs" />
     <Compile Include="EF\CurrencyChangeLog.cs" />
     <Compile Include="EF\CurrencyDBContext.cs" />

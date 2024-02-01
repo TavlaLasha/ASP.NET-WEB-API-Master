@@ -1,11 +1,9 @@
-﻿using DAL.Repository.Interfaces;
+﻿using DAL.EF;
+using DAL.Repository.Interfaces;
+using Models.DataViewModels.CurrencyManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL.EF;
-using Models.DataViewModels.CurrencyManagement;
 
 namespace DAL.Repository
 {

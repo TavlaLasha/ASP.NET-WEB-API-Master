@@ -178,6 +178,8 @@ C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.csproj.CopyComplete
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.dll
 C:\inetpub\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.pdb
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.csproj.AssemblyReference.cache
+F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.csproj.CoreCompileInputs.cache
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\ApplicationInsights.config
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\roslyn\csc.exe
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -206,21 +208,10 @@ F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\Curre
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.ApplicationInsights.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.AspNet.Identity.Core.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.AspNet.Identity.Owin.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Host.SystemWeb.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Cookies.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Facebook.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Google.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.OAuth.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Twitter.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Web.Infrastructure.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Models.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Newtonsoft.Json.dll
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Owin.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\PagedList.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\PagedList.Mvc.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\System.Web.Helpers.dll
@@ -252,19 +243,7 @@ F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\Curre
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\EntityFramework.xml
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\EntityFramework.SqlServer.xml
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.AspNet.Identity.Core.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.AspNet.Identity.Owin.xml
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Host.SystemWeb.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Facebook.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Cookies.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.OAuth.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Google.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.Twitter.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.csproj.AssemblyReference.cache
-F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.csproj.CoreCompileInputs.cache
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.csproj.CopyComplete
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.dll
 F:\Desktop\Lasha\GAU\C# 2\ASP.NET-WEB-API-Master\Final\CurrencyApp-ASP-NET\CurrencyAppSolution\CurrencyApp\obj\Debug\CurrencyApp.pdb

@@ -40,4 +40,11 @@ namespace CurrencyServiceAPI.Models
 
         public string ProviderKey { get; set; }
     }
+
+    public class UserViewModel
+    {
+        public string Email { get; set; }
+
+        public List<string> Roles { get; set; }
+    }
 }

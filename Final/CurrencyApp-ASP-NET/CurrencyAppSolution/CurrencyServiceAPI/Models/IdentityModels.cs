@@ -21,7 +21,7 @@ namespace CurrencyServiceAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CurrencyDBContext", throwIfV1Schema: false)
         {
         }
         

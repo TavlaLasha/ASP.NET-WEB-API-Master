@@ -10,38 +10,30 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using CurrencyApp.Helpers;
+using System.Threading.Tasks;
+using CurrencyApp.Models;
 
 namespace CurrencyApp.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : WebsiteControllerBase
     {
         static HttpClient client = new HttpClient();
-        string BaseURL = ConfigurationManager.AppSettings["CurrencyService"];
-
-        public ActionResult Index()
+        string BaseURL = ConfigurationManager.AppSettings["CurrencyService"] + "api/";
+        public async Task<ActionResult> Index()
         {
-            try
-            {
-                HttpResponseMessage response = client.GetAsync($"{BaseURL}Currency/GetAll").Result;
-                List<CurrencyDTO> ct = new List<CurrencyDTO>();
-                if (response.IsSuccessStatusCode)
-                {
-                    ct = JsonConvert.DeserializeObject<List<CurrencyDTO>>(response.Content.ReadAsStringAsync().Result);
-                }
-                return View(ct);
-            }
-            catch (Exception ex)
-            {
-                return new HttpNotFoundResult();
-            }
+            var ViewModel = await HomeModel.GetPageViewModel();
+
+            return View(ViewModel);
         }
 
-        [Authorize(Roles = "Admin")]
-        public ActionResult FillDBWithNew(string user)
+        [CustomAuthorize(Roles = "Admin")]
+        public ActionResult FillDBWithNew()
         {
             try
             {
-                HttpResponseMessage response = client.GetAsync($"{BaseURL}Currency/FillDBWithLatest/{user}").Result;
+                var User = SessionAssistance.GetUser(Session);
+                HttpResponseMessage response = client.GetAsync($"{BaseURL}Currency/FillDBWithLatest/{User.Email}").Result;
                 List<string> updated = new List<string>();
                 if (response.IsSuccessStatusCode)
                 {
@@ -56,7 +48,7 @@ namespace CurrencyApp.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Edit(string code)
         {
             try
@@ -75,7 +67,7 @@ namespace CurrencyApp.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Admin")]
         //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Edit(string code, [Bind(Include = "quantity, rateFormated, diffFormated, rate, name, diff, date, validFromDate")] CurrencyDTO currency)

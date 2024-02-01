@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Models.DataViewModels.CurrencyManagement.CurrencyDTO>
+﻿@model CurrencyApp.Models.HomeModel.PageViewModel
 
 @{
     ViewBag.Title = "Currency Data";
@@ -6,9 +6,9 @@
 
 <br />
 
-@if (User.IsInRole("Admin"))
+@if (Model.UserIsAdmin)
 {
-    @Html.ActionLink("Check Update Logs", "GetLogs", new { }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Check Update Logs", "GetLogs", null, new { @class = "btn btn-primary" })
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="float: right;">
         Update with latest data
     </button>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" onclick="location.href='@Url.Action("FillDBWithNew", new { user = User.Identity.Name.Substring(0, User.Identity.Name.IndexOf("@")) })'" class="btn btn-primary">Yes</button>
+                    <button type="button" onclick="location.href='@Url.Action("FillDBWithNew")'" class="btn btn-primary">Yes</button>
                 </div>
             </div>
         </div>
@@ -35,75 +35,78 @@
         <thead>
             <tr>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.code)
+                    @Html.DisplayNameFor(model => model.Currencies[0].code)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.quantity)
+                    @Html.DisplayNameFor(model => model.Currencies[0].quantity)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.rateFormated)
+                    @Html.DisplayNameFor(model => model.Currencies[0].rateFormated)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.diffFormated)
+                    @Html.DisplayNameFor(model => model.Currencies[0].diffFormated)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.rate)
+                    @Html.DisplayNameFor(model => model.Currencies[0].rate)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.name)
+                    @Html.DisplayNameFor(model => model.Currencies[0].name)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.diff)
+                    @Html.DisplayNameFor(model => model.Currencies[0].diff)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.date)
+                    @Html.DisplayNameFor(model => model.Currencies[0].date)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.validFromDate)
+                    @Html.DisplayNameFor(model => model.Currencies[0].validFromDate)
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @if (Model.HasCurrencies)
             {
-                <tr id="@item.code" @((TempData["codes"] != null) ? (((TempData["codes"] as List<string>).Any(i => i.ToString().Equals(item.code))) ? "class=success" : String.Empty) : String.Empty)>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.code)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.rateFormated)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.diffFormated)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.rate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.diff)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.validFromDate)
-                    </td>
-                    @if (User.IsInRole("Admin"))
+                foreach (var item in Model.Currencies)
                 {
+                    <tr id="@item.code" @((TempData["codes"] != null) ? (((TempData["codes"] as List<string>).Any(i => i.ToString().Equals(item.code))) ? "class=success" : String.Empty) : String.Empty)>
+
                         <td>
-                            <input type="button" class="btn btn-primary" name='@item.code' value="Edit" id="btnEdit" />
-                            @*@Html.ActionLink("Edit", "Edit", new { code = item.code }, new { @class = "btn btn-primary" })*@
+                            @Html.DisplayFor(modelItem => item.code)
                         </td>
-                    }
-                </tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.rateFormated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.diffFormated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.rate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.diff)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.validFromDate)
+                        </td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td>
+                                <input type="button" class="btn btn-primary" name='@item.code' value="Edit" id="btnEdit" />
+                                @*@Html.ActionLink("Edit", "Edit", new { code = item.code }, new { @class = "btn btn-primary" })*@
+                            </td>
+                        }
+                    </tr>
+                }
             }
         </tbody>
 

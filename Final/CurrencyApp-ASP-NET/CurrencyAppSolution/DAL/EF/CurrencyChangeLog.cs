@@ -22,7 +22,6 @@ namespace DAL.EF
         [Required]
         public string Data { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime Updated_At { get; set; }
     }
 }

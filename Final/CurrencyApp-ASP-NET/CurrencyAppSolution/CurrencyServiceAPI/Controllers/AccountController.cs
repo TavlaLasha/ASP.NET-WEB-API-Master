@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using CurrencyServiceAPI.Models;
 using CurrencyServiceAPI.Providers;
 using CurrencyServiceAPI.Results;
+using System.Linq;
 
 namespace CurrencyServiceAPI.Controllers
 {
@@ -50,6 +51,19 @@ namespace CurrencyServiceAPI.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
+
+        [AllowAnonymous]
+        [Route("UserInfo")]
+        public async Task<UserViewModel> GetUserInfoByEmail(string Email)
+        {
+            IdentityUser user = await UserManager.FindByEmailAsync(Email);
+
+            return new UserViewModel
+            {
+                Email = user.UserName,
+                Roles = UserManager.GetRoles(user.Id).ToList()
+            };
+        }
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]

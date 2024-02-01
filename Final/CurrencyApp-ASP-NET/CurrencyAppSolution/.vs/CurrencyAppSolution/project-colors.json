@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d51f90f7-5a85-4f75-b33f-766a6526a32c": {
+      "ProjectGuid": "d51f90f7-5a85-4f75-b33f-766a6526a32c",
+      "DisplayName": "DAL",
+      "ColorIndex": 0
+    },
+    "876970bd-1d96-4745-b92a-ee786800365f": {
+      "ProjectGuid": "876970bd-1d96-4745-b92a-ee786800365f",
+      "DisplayName": "BLL",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "ce43f1d5-3c55-424d-949a-1dc5d3329894": {
+      "ProjectGuid": "ce43f1d5-3c55-424d-949a-1dc5d3329894",
+      "DisplayName": "CurrencyService",
+      "ColorIndex": 2
+    },
+    "9b05fcba-d263-4ea9-a814-cdec00748c69": {
+      "ProjectGuid": "9b05fcba-d263-4ea9-a814-cdec00748c69",
+      "DisplayName": "CurrencyApp",
+      "ColorIndex": 3
+    },
+    "60edfd0d-4d31-4204-b0ce-ec6d930e1884": {
+      "ProjectGuid": "60edfd0d-4d31-4204-b0ce-ec6d930e1884",
+      "DisplayName": "Models",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

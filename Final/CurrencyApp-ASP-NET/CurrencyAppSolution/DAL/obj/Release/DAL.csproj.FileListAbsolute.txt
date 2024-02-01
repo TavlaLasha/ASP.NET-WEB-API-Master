@@ -1,0 +1,14 @@
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\DAL.dll.config
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\DAL.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\DAL.pdb
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\EntityFramework.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\EntityFramework.SqlServer.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\Models.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\Models.pdb
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\EntityFramework.xml
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\bin\Release\EntityFramework.SqlServer.xml
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Release\DAL.csproj.AssemblyReference.cache
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Release\DAL.csproj.CopyComplete
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Release\DAL.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\DAL\obj\Release\DAL.pdb

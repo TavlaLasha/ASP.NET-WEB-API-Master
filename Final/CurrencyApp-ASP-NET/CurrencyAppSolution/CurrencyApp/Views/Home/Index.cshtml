@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Models.DataViewModels.CurrencyManagement.CurrencyDTO>
+
+@{
+    ViewBag.Title = "Currency Data";
+}
+
+<br />
+
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Check Update Logs", "GetLogs", new { }, new { @class = "btn btn-primary" })
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="float: right;">
+        Update with latest data
+    </button>
+    <hr />
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLongTitle">Are You Sure?</h3>
+                </div>
+                <div class="modal-body">
+                    Every record will be updated to latest data.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" onclick="location.href='@Url.Action("FillDBWithNew", new { user = User.Identity.Name.Substring(0, User.Identity.Name.IndexOf("@")) })'" class="btn btn-primary">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="table-responsive-xl">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.code)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.rateFormated)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.diffFormated)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.rate)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.diff)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.date)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.validFromDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="@item.code" @((TempData["codes"] != null) ? (((TempData["codes"] as List<string>).Any(i => i.ToString().Equals(item.code))) ? "class=success" : String.Empty) : String.Empty)>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rateFormated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diffFormated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diff)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.validFromDate)
+                    </td>
+                    @if (User.IsInRole("Admin"))
+                {
+                        <td>
+                            <input type="button" class="btn btn-primary" name='@item.code' value="Edit" id="btnEdit" />
+                            @*@Html.ActionLink("Edit", "Edit", new { code = item.code }, new { @class = "btn btn-primary" })*@
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+    <div id="kw"></div>
+    <div id="dvPartialView"></div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').on('click', '[id*=btnEdit]', function () {
+                $.ajax({
+                    url: '@Url.Action("Edit", "Home")',
+                    dataType: "html",
+                    data: { "code": $(this).attr('name') },
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function (response) {
+                        $('#dvPartialView').html(response);
+                    },
+                    error: function (err) {
+                        alert(err.responseText);
+                    }
+                });
+            });
+        });
+    </script>

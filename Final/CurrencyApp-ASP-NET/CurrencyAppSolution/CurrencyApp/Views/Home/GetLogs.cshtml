@@ -1,0 +1,47 @@
+﻿@model PagedList.IPagedList<Models.DataViewModels.CurrencyManagement.LogDTO>
+@using PagedList.Mvc;
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CurrencyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Updated_At)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrencyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_At)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+    </tr>
+}
+
+</table>
+<br />
+
+@Html.PagedListPager(Model, page => Url.Action("GetLogs", new { page }))
+    Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount ct

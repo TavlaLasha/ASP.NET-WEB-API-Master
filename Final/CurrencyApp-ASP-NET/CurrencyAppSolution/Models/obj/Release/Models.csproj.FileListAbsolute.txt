@@ -1,0 +1,6 @@
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\bin\Release\Models.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\bin\Release\Models.pdb
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Release\Models.csproj.AssemblyReference.cache
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Release\Models.csproj.CoreCompileInputs.cache
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Release\Models.dll
+F:\Desktop\Lasha\GAU\C#\ASP.NET\CurrencyApp-ASP-NET\CurrencyAppSolution\Models\obj\Release\Models.pdb

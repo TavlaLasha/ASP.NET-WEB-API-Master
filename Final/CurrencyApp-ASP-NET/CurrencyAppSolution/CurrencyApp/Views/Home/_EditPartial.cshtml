@@ -1,0 +1,175 @@
+﻿@model Models.DataViewModels.CurrencyManagement.CurrencyDTO
+
+
+
+<form method="post" data-ajax="true" data-ajax-method="post" data-ajax-mode='replace'>
+    @Html.AntiForgeryToken()
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLongTitle">Edit Currency Data</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.code, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.code, new { htmlAttributes = new { @class = "form-control", @id = "code" } })
+                                @Html.ValidationMessageFor(model => model.code, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control", @id = "quantity" } })
+                                @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.rateFormated, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.rateFormated, new { htmlAttributes = new { @class = "form-control", @id = "rateFormated" } })
+                                @Html.ValidationMessageFor(model => model.rateFormated, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.diffFormated, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.diffFormated, new { htmlAttributes = new { @class = "form-control", @id = "diffFormated" } })
+                                @Html.ValidationMessageFor(model => model.diffFormated, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.rate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.rate, new { htmlAttributes = new { @class = "form-control", @id = "rate" } })
+                                @Html.ValidationMessageFor(model => model.rate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @id = "name" } })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.diff, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.diff, new { htmlAttributes = new { @class = "form-control", @id = "diff" } })
+                                @Html.ValidationMessageFor(model => model.diff, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control", @id = "date" } })
+                                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.validFromDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.validFromDate, new { htmlAttributes = new { @class = "form-control", @id = "validFromDate" } })
+                                @Html.ValidationMessageFor(model => model.validFromDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSave">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#editModal').modal('show');
+            });
+
+            $(function () {
+
+                $("#btnSave").click(function () {
+                    code = $("#code").val();
+                    var std = {};
+                    std.quantity = parseInt($("#quantity").val());
+                    std.rateFormated = $("#rateFormated").val();
+                    std.diffFormated = $("#diffFormated").val();
+                    std.rate = parseFloat($("#rate").val());
+                    std.name = $("#name").val();
+                    std.diff = parseFloat($("#diff").val());
+                    std.date = $("#date").val();
+                    std.validFromDate = $("#validFromDate").val();
+                    //alert(JSON.stringify(std));
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Edit", "Home")',
+                        data: JSON.stringify({ code: code, currency: std }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (response) {
+                            //alert("Data has been added successfully.");
+                            LoadData(code, std, response.Changed);
+                            $('#editModal').modal('hide');
+                        },
+                        error: function (xhr, status, error) {
+                            alert("Error while inserting data. " + error);
+                            alert(xhr.responseText);
+                        }
+                    });
+                    return false;
+                });
+            });
+
+            function LoadData(code, data, changed) {
+
+                var items = "<td>" + String(code) + "</td>"
+                + "<td>" + String(data.quantity) + "</td>"
+                + "<td>" + String(data.rateFormated) + "</td>"
+                + "<td>" + String(data.diffFormated) + "</td>"
+                + "<td>" + String(data.rate) + "</td>"
+                + "<td>" + String(data.name) + "</td>"
+                + "<td>" + String(data.diff) + "</td>"
+                + "<td>" + formatDate(data.date) + "</td>"
+                + "<td>" + formatDate(data.validFromDate) + "</td>"
+                + "<td><input type='button' class = 'btn btn-primary' name='" + code + "' value='Edit' /></td>";
+
+                $('#' + code + '').html(items);
+                $('#' + code + '').find("input").attr('id', 'btnEdit');
+                if (changed == true) {
+                    $('#' + code + '').addClass("success");
+                }
+            }
+            function formatDate(date) {
+
+                var d = new Date(date);
+                month = '' + (d.getMonth() + 1);
+                day = '' + d.getDate();
+                year = d.getFullYear();
+
+                if (month.length < 2) month = '0' + month;
+                if (day.length < 2) day = '0' + day;
+
+                return [year, month, day].join('-');
+            }
+        </script>
+        
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

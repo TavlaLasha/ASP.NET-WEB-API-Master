@@ -1,18 +1,11 @@
-﻿using Models.DataViewModels.CurrencyManagement;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using CurrencyApp.Helpers;
+using CurrencyApp.Models;
+using Models.DataViewModels.CurrencyManagement;
 using System.Configuration;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
-using PagedList;
-using CurrencyApp.Helpers;
 using System.Threading.Tasks;
-using CurrencyApp.Models;
+using System.Web.Mvc;
 
 namespace CurrencyApp.Controllers
 {
@@ -27,101 +20,60 @@ namespace CurrencyApp.Controllers
             return View(ViewModel);
         }
 
-        [CustomAuthorize(Roles = "Admin")]
-        public ActionResult FillDBWithNew()
+        [CustomAuthorize(Roles = "Admin,Manager")]
+        public async Task<ActionResult> FillDBWithNew()
         {
-            try
+            var AR = await HomeModel.FillDBWithNew();
+            if (AR.IsSuccess)
             {
-                var User = SessionAssistance.GetUser(Session);
-                HttpResponseMessage response = client.GetAsync($"{BaseURL}Currency/FillDBWithLatest/{User.Email}").Result;
-                List<string> updated = new List<string>();
-                if (response.IsSuccessStatusCode)
-                {
-                    updated = JsonConvert.DeserializeObject<List<string>>(response.Content.ReadAsStringAsync().Result);
-                }
-                TempData["codes"] = updated;
+                TempData["codes"] = AR.Data;
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
-            {
-                return new HttpNotFoundResult();
-            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         [CustomAuthorize(Roles = "Admin")]
-        public ActionResult Edit(string code)
+        public async Task<ActionResult> Edit(string code)
         {
-            try
-            {
-                HttpResponseMessage response = client.GetAsync($"{BaseURL}Currency/GetCurrency/{code}").Result;
-                CurrencyDTO ct = new CurrencyDTO();
-                if (response.IsSuccessStatusCode)
-                {
-                    ct = JsonConvert.DeserializeObject<CurrencyDTO>(response.Content.ReadAsStringAsync().Result);
-                }
-                return PartialView("_EditPartial", ct);
-            }
-            catch (Exception ex)
-            {
-                return new HttpNotFoundResult();
-            }
+            var ViewModel = await HomeModel.GetEditPartialViewModel(code);
+            return PartialView("_EditPartial", ViewModel);
         }
 
         [CustomAuthorize(Roles = "Admin")]
         //[ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(string code, [Bind(Include = "quantity, rateFormated, diffFormated, rate, name, diff, date, validFromDate")] CurrencyDTO currency)
+        public async Task<ActionResult> Edit(string code, [Bind(Include = "quantity, rateFormated, diffFormated, rate, name, diff, date, validFromDate")] CurrencyDTO currency)
         {
-            try
+            bool? Result = null;
+
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                    throw new Exception("მონაცემები არავალიდურია!");
-
-                string output = JsonConvert.SerializeObject(currency);
-                var stringContent = new StringContent(output, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = client.PostAsync($"{BaseURL}Currency/EditCurrency/{code}/{User.Identity.Name.Substring(0, User.Identity.Name.IndexOf("@"))}", stringContent).Result;
-
-                bool updated;
-                if (response.IsSuccessStatusCode)
-                {
-                    updated = JsonConvert.DeserializeObject<bool>(response.Content.ReadAsStringAsync().Result);
-                }
-                else
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                }
-                bool changed = false;
-                if (updated)
-                    changed = true;
-
-
-                return Json(new { Changed = changed, JsonRequestBehavior.AllowGet });
+                Result = false;
             }
-            catch (Exception ex)
+            else
             {
-                return new HttpNotFoundResult();
+                Result = await HomeModel.EditCurrency(code, currency);
+            }
+
+            if (Result == false)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else if (Result == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+            else
+            {
+                return Json(new { Changed = Result == true, JsonRequestBehavior.AllowGet });
             }
         }
 
-        public ActionResult GetLogs(int page=1)
+        [CustomAuthorize(Roles = "Admin,Manager")]
+        public async Task<ActionResult> GetLogs(int page = 1)
         {
-            try
-            {
-                HttpResponseMessage response = client.GetAsync($"{BaseURL}Log/GetAll").Result;
-                List<LogDTO> ct = new List<LogDTO>();
-                if (response.IsSuccessStatusCode)
-                {
-                    ct = JsonConvert.DeserializeObject<List<LogDTO>>(response.Content.ReadAsStringAsync().Result);
-                }
-                PagedList<LogDTO> model = new PagedList<LogDTO>(ct, page, 15);
-
-                return View(model);
-            }
-            catch (Exception ex)
-            {
-                return new HttpNotFoundResult();
-            }
+            var ViewModel = await HomeModel.GetLogsPageViewModel(page);
+            return View(ViewModel);
         }
 
         public ActionResult About()

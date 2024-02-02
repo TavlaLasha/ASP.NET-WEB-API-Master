@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace CurrencyApp.Models
 {
@@ -8,6 +9,11 @@ namespace CurrencyApp.Models
         public string access_token { get; set; }
         public string Email { get; set; }
         public List<string> Roles { get; set; }
+
+        public bool IsInRole(string role)
+        {
+            return Roles?.Any(Item => Item.ToLower().Trim().Equals(role.ToLower().Trim())) == true;
+        }
     }
 
     public class ForgotViewModel

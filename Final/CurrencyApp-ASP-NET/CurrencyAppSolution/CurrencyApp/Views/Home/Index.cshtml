@@ -6,7 +6,7 @@
 
 <br />
 
-@if (Model.UserIsAdmin)
+@if (Model.UserIsAdmin || Model.UserIsManager)
 {
     @Html.ActionLink("Check Update Logs", "GetLogs", null, new { @class = "btn btn-primary" })
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="float: right;">
@@ -98,7 +98,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.validFromDate)
                         </td>
-                        @if (User.IsInRole("Admin"))
+                        @if (Model.UserIsAdmin)
                         {
                             <td>
                                 <input type="button" class="btn btn-primary" name='@item.code' value="Edit" id="btnEdit" />
@@ -112,26 +112,27 @@
 
     </table>
 </div>
-    <div id="kw"></div>
-    <div id="dvPartialView"></div>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('body').on('click', '[id*=btnEdit]', function () {
-                $.ajax({
-                    url: '@Url.Action("Edit", "Home")',
-                    dataType: "html",
-                    data: { "code": $(this).attr('name') },
-                    type: "GET",
-                    contentType: "application/json",
-                    success: function (response) {
-                        $('#dvPartialView').html(response);
-                    },
-                    error: function (err) {
-                        alert(err.responseText);
-                    }
-                });
+<div id="kw"></div>
+<div id="dvPartialView"></div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('body').on('click', '[id*=btnEdit]', function () {
+            $.ajax({
+                url: '@Url.Action("Edit", "Home")',
+                dataType: "html",
+                data: { "code": $(this).attr('name') },
+                type: "GET",
+                contentType: "application/json",
+                success: function (response) {
+                    $('#dvPartialView').html(response);
+                },
+                error: function (err) {
+                    alert(err.responseText);
+                }
             });
         });
-    </script>
+    });
+</script>

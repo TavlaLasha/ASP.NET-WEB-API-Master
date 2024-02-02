@@ -92,7 +92,7 @@ namespace BLL.Services
         {
             UnitOfWork _unitOfWork = new UnitOfWork(new CurrencyDBContext());
 
-            if (user.Equals(""))
+            if (string.IsNullOrWhiteSpace(user))
                 throw new Exception($"Forbidden request!");
 
             if (_unitOfWork.CurrencyRepo.GetCurrency(code) == null)
@@ -101,7 +101,7 @@ namespace BLL.Services
             CurrencyDTO curr = _unitOfWork.CurrencyRepo.GetCurrency(code);
 
             string diff = CheckDifferences(curr, dt);
-            if (!diff.Equals("No Changes"))
+            if (!string.IsNullOrWhiteSpace(diff))
             {
                 _unitOfWork.BeginTransaction();
                 _unitOfWork.LogRepo.AddLogs(new List<CurrencyChangeLog> { new CurrencyChangeLog

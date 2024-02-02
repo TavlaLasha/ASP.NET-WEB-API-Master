@@ -107,25 +107,27 @@
 
                 $("#btnSave").click(function () {
                     code = $("#code").val();
-                    var std = {};
-                    std.quantity = parseInt($("#quantity").val());
-                    std.rateFormated = $("#rateFormated").val();
-                    std.diffFormated = $("#diffFormated").val();
-                    std.rate = parseFloat($("#rate").val());
-                    std.name = $("#name").val();
-                    std.diff = parseFloat($("#diff").val());
-                    std.date = $("#date").val();
-                    std.validFromDate = $("#validFromDate").val();
-                    //alert(JSON.stringify(std));
+                    var formData = {
+                        quantity: parseInt($("#quantity").val()),
+                        rateFormated: $("#rateFormated").val(),
+                        diffFormated: $("#diffFormated").val(),
+                        rate: parseFloat($("#rate").val()),
+                        name: $("#name").val(),
+                        diff: parseFloat($("#diff").val()),
+                        date: $("#date").val(),
+                        validFromDate: $("#validFromDate").val()
+                    };
+                    
+                    //alert(JSON.stringify(formData));
                     $.ajax({
                         type: "POST",
                         url: '@Url.Action("Edit", "Home")',
-                        data: JSON.stringify({ code: code, currency: std }),
+                        data: JSON.stringify({ code: code, currency: formData }),
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         success: function (response) {
                             //alert("Data has been added successfully.");
-                            LoadData(code, std, response.Changed);
+                            LoadData(code, formData, response.Changed);
                             $('#editModal').modal('hide');
                         },
                         error: function (xhr, status, error) {
@@ -139,21 +141,21 @@
 
             function LoadData(code, data, changed) {
 
-                var items = "<td>" + String(code) + "</td>"
-                + "<td>" + String(data.quantity) + "</td>"
-                + "<td>" + String(data.rateFormated) + "</td>"
-                + "<td>" + String(data.diffFormated) + "</td>"
-                + "<td>" + String(data.rate) + "</td>"
-                + "<td>" + String(data.name) + "</td>"
-                + "<td>" + String(data.diff) + "</td>"
-                + "<td>" + formatDate(data.date) + "</td>"
-                + "<td>" + formatDate(data.validFromDate) + "</td>"
-                + "<td><input type='button' class = 'btn btn-primary' name='" + code + "' value='Edit' /></td>";
+                var items = `<td>${code}</td>
+                <td>${data.quantity}</td>
+                <td>${data.rateFormated}</td>
+                <td>${data.diffFormated}</td>
+                <td>${data.rate}</td>
+                <td>${data.name}</td>
+                <td>${data.diff}</td>
+                <td>${data.date}</td>
+                <td>${data.validFromDate}</td>
+                <td><input type='button' class='btn btn-primary' name='${code}' value='Edit' /></td>`;
 
-                $('#' + code + '').html(items);
-                $('#' + code + '').find("input").attr('id', 'btnEdit');
+                $(`#${code}`).html(items);
+                $(`#${code}`).find("input").attr('id', 'btnEdit');
                 if (changed == true) {
-                    $('#' + code + '').addClass("success");
+                    $(`#${code}`).addClass("success");
                 }
             }
             function formatDate(date) {

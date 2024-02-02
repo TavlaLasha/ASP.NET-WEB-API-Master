@@ -10,7 +10,7 @@ namespace CurrencyApp.Models
         #region Properties
         public User User { get; set; }
         public bool IsAuthenticated => User != null;
-        public bool IsAdmin => User?.Roles?.Any(Item => Item.Equals("Admin")) == true;
+        public bool IsLogsVisible => User?.IsInRole("Admin") == true || User?.IsInRole("Manager") == true;
         #endregion
     }
 }
